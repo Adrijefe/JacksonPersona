@@ -10,7 +10,7 @@ import java.util.Scanner;
 class Main {
     public static void main(String[] args) throws Exception {
         XmlMapper xmlMapper = new XmlMapper();
-        File xmlFile = new File("C:\\Users\\Usuario\\IdeaProjects\\Ej1JacksonGuiado\\src\\main\\resources\\Persona.xml");
+        File xmlFile = new File("C:\\Users\\serra\\IdeaProjects\\JacksonPersona\\src\\main\\resources");
 
         try {
             if (xmlFile.exists()) {

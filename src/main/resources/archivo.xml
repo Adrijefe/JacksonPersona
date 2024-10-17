@@ -1,0 +1,15 @@
+<persona>
+    <nombre>Adrian Peiro</nombre>
+    <edad>21</edad>
+    <direcciones>
+        <direccion tipus="casa">
+            <calle>Barrio Carbonaire</calle>
+            <ciudad>Vall de Uxo</ciudad>
+        </direccion>
+        <adreca tipus="oficina">
+            <carrer>Canto del Bobet</carrer>
+            <ciutat>Benigaslo</ciutat>
+        </adreca>
+    </direcciones>
+    <notes><![CDATA[Soy el mejor.]]></notes>
+</persona>
