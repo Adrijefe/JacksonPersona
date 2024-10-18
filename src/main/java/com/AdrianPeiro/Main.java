@@ -1,31 +1,28 @@
 package com.AdrianPeiro;
 
-import com.AdrianPeiro.Persona;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 
 import java.io.File;
-import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) throws Exception {
         XmlMapper xmlMapper = new XmlMapper();
-        File xmlFile = new File("C:\\Users\\serra\\IdeaProjects\\JacksonPersona\\src\\main\\resources");
+        File xmlFile = new File("src/main/resources/deporte.xml");
 
         try {
             if (xmlFile.exists()) {
-                Persona persona = xmlMapper.readValue(xmlFile, Persona.class);
+                Deporte deporte = xmlMapper.readValue(xmlFile, Deporte.class);
 
-                System.out.println("Nombre: " + persona.getNombre());
-                System.out.println("Edad: " + persona.getEdad());
-                System.out.println("Notas: " + persona.getNotas());
+                System.out.println("Nombre del Equipo: " + deporte.getNombreEquipos());
 
-                for (Direccion adreca : persona.getDirecciones()) {
-                    System.out.println("Tipo de calle: " + adreca.getTipo());
-                    System.out.println("Calle: " + adreca.getCalle());
-                    System.out.println("Ciudad: " + adreca.getCiudad());
+                for (NombreJugadores nombreJugadores : deporte.getJugadores()) {
+                    System.out.println("Nombre del jugador: " + nombreJugadores.getTipus());
+                    System.out.println("En que posición juega: " + nombreJugadores.getPosicion());
+                    System.out.println("Que dorsal lleva puesto: " + nombreJugadores.getDorsal());
                     System.out.println();
                 }
+
             } else {
                 System.err.println("El fichero no existe.");
             }

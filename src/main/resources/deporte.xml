@@ -1,0 +1,24 @@
+<deporte>
+    <nombreEquipo>Filibertos</nombreEquipo>
+             <jugadores>
+            <nombre tipus= "Jose">
+                 <posicion>Delantero</posicion>
+                 <dorsal>8</dorsal>
+            </nombre>
+            <nombre tipus="Victor">
+                <posicion>Defensa</posicion>
+                <dorsal>21</dorsal>
+            </nombre>
+             </jugadores>
+    <nombreEquipo>Alvaricoques</nombreEquipo>
+        <jugadores>
+            <nombre tipus= "Alvaro">
+                <posicion>Delantero</posicion>
+                <dorsal>43</dorsal>
+            </nombre>
+            <nombre tipus="Tedi">
+                <posicion>Defensa</posicion>
+                <dorsal>15</dorsal>
+            </nombre>
+        </jugadores>
+</deporte>
