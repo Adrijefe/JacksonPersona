@@ -1,10 +1,10 @@
 package com.AdrianPeiro;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 
-import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +12,9 @@ import java.util.List;
 public class MainParaJugadores {
         public static void main(String[] args) throws IOException {
             XmlMapper xmlMapperJugadores = new XmlMapper();
-            File xmlFile = new File("src/main/resources/deporte.xml");
-            Deporte deportes = xmlMapperJugadores.readValue(xmlFile, Deporte.class);
-            xmlMapperJugadores.writeValue(new File("src/main/resources/copiado.xml"), deportes);
-            xmlMapperJugadores.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
+            //lo utilizamos para crear una instancia nueva
+        try{
 
-            Deporte deporte = xmlMapperJugadores.readValue(new File("C:\\Users\\serra\\IdeaProjects\\JacksonPersona\\src\\main\\resources\\deporte.xml"), Deporte.class);
              Deporte nueva =new Deporte();
             nueva.setNombreEquipos("Alvaritos al poder");
 
@@ -26,6 +23,7 @@ public class MainParaJugadores {
             primero.setTipus("Alfredo");
            primero.setPosicion("Delantero");
            primero.setDorsal(23);
+           jugador.add(primero);
 
             NombreJugadores segundo = new NombreJugadores();
             segundo.setTipus("Fili");
@@ -33,11 +31,21 @@ public class MainParaJugadores {
             segundo.setDorsal(17);
             jugador.add(segundo);
 
-            deporte.setJugadores(jugador);
 
-            try {
-                String xml = xmlMapperJugadores.writeValueAsString(deporte);
-                System.out.println(xml);
+            nueva.setJugadores(jugador);
+
+            xmlMapperJugadores.configure(ToXmlGenerator.Feature.WRITE_XML_DECLARATION, true);
+
+            xmlMapperJugadores.enable(SerializationFeature.INDENT_OUTPUT);
+
+            String xml = xmlMapperJugadores.writeValueAsString(nueva);
+
+            FileWriter fileWriter = new FileWriter("src/main/resources/copia.xml");
+            fileWriter.write(xml);
+            fileWriter.close();
+            System.out.println("Se creo correctamente");
+
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

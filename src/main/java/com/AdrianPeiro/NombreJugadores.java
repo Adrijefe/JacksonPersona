@@ -5,7 +5,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 public class NombreJugadores {
     ;
-    @JacksonXmlProperty(localName = "tipus")
+    @JacksonXmlProperty(isAttribute = true, localName = "tipus")
 private String tipus;
     @JacksonXmlProperty(localName = "posicion")
 private String posicion;
